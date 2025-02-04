@@ -1,0 +1,21 @@
+{
+  "name": "whitetree",
+  "version": "1.0.0",
+  "author": "Samuel Hemby",
+  "main": "dist/whitetree.js",
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "rollup -c",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
+  },
+  "files": [
+    "dist/whitetree.js"
+  ],
+  "devDependencies": {
+    "eslint": "^9.19.0",
+    "rollup": "^4.34.2",
+    "rollup-plugin-cleanup": "^3.2.1",
+    "rollup-plugin-filesize": "^10.0.0"
+  }
+}

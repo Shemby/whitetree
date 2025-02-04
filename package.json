@@ -1,0 +1,13 @@
+{
+  "name": "whitetree-project",
+  "version": "1.0.0",
+  "author": "Samuel Hemby",
+  "description": "A JS Frontend Framework",
+  "private": true,
+  "workspaces": [
+    "packages/runtime"
+  ],
+  "scripts": {
+    "serve:examples": "npx http-server . -o ./examples/"
+  }
+}
