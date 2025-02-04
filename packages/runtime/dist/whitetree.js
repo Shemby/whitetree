@@ -1,1 +1,1 @@
-console.log('WhiteTree Go Here!');
+console.log('WhiteTree go here!');
