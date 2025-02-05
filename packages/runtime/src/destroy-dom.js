@@ -2,18 +2,18 @@ import { DOM_TYPES } from "./hyperscript";
 import { removeEventListeners } from "./events";
 
 const removeTextNode = (vdom) => {
-    const { el } = vdom;
-    el.remove();
+    const { element } = vdom;
+    element.remove();
 };
 
 const reomveElementNode = (vdom) => {
-    const { el, children, listeners } = vdom;
+    const { element, children, listeners } = vdom;
 
-    el.remove();
+    element.remove();
     children.forEach(destroyDOM);
 
     if(listeners) {
-        removeEventListeners(listeners, el);
+        removeEventListeners(listeners, element);
         delete vdom.listeners;
     }
 };
@@ -21,7 +21,7 @@ const reomveElementNode = (vdom) => {
 const removeFragmentNode = (vdom) => {
     const { children } = vdom;
     children.forEach(destroyDOM);
-};d
+};
 
 export const destroyDOM = (vdom) => {
     const { type } = vdom;
@@ -44,5 +44,5 @@ export const destroyDOM = (vdom) => {
         }
     }
 
-    delete vdom.el;
+    delete vdom.element;
 };

@@ -33,7 +33,7 @@ const createTextNode = (vdom, parent) => {
     const { value } = vdom;
 
     const textNode = document.createTextNode(value);
-    vdom.el = textNode;
+    vdom.element = textNode;
 
     parent.append(textNode);
 };
@@ -43,7 +43,7 @@ const createElementNode = (vdom, parent) => {
 
     const newElement = document.createElement(tag);
     addProps(newElement, props, vdom);
-    vdom.el = newElement;
+    vdom.element = newElement;
 
     children.forEach((child) => mountDOM(child, newElement));
     parent.append(newElement);
@@ -51,7 +51,7 @@ const createElementNode = (vdom, parent) => {
 
 const createFragmentNode = (vdom, parent) => {
     const { children } = vdom;
-    vdom.el = parent;
+    vdom.element = parent;
 
     children.forEach((child) => mountDOM(child, parent));
 };
