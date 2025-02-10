@@ -33,7 +33,7 @@ export const setAttribute = (element, name, value) => {
     }
 };
 
-export const setAttributes = (element, attributes) => {
+export const setAttributes = (element, attrs) => {
     const { class: className, style, ...attributes } = attrs;
 
     if (className) {

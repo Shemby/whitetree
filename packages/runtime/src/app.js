@@ -6,6 +6,15 @@ export const createApp = ({ state, view, reducers = {} }) => {
     let parentElement = null;
     let vdom = null;
 
+    const renderApp = () => {
+        if (vdom) {
+            destroyDOM(vdom);
+        }
+
+        vdom = view(state, emit);
+        mountDOM(vdom, parentElement);
+    };
+
     const dispatcher = new Dispatcher();
     const subscriptions = [dispatcher.afterEveryCommand(renderApp)];
 
@@ -22,17 +31,8 @@ export const createApp = ({ state, view, reducers = {} }) => {
         subscriptions.push(subs);
     };
 
-    const renderApp = () => {
-        if (vdom) {
-            destroyDOM(vdom);
-        }
-
-        vdom = view(state);
-        mountDOM(vdom, parentElement);
-    };
-
     return {
-        mount(_parentEl) {
+        mount(_parentElement) {
             parentElement = _parentElement;
             renderApp();
         },
