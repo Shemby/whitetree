@@ -7,7 +7,7 @@ const CreateTodo = ({ currentTodo }, emit) => {
             type: 'text',
             id: 'todo-input',
             value: currentTodo,
-            class: 'add-todo',
+            className: 'add-todo',
             on: {
                 change: ({ target }) => emit('update-current-todo', target.value),
                 keydown: ({ key }) => {
@@ -18,7 +18,7 @@ const CreateTodo = ({ currentTodo }, emit) => {
             }
         }),
         hyperscript('button', {
-            class: 'add-todo',
+            className: 'add-todo',
             disabled: currentTodo.length < 3,
             on: { click: () => emit('add-todo') }
         },
